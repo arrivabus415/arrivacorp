@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terms of Service | Arriva Corporation</title>
+
+<link rel="icon" type="image/png" href="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<meta property="og:title" content="Arriva Corporation - Terms of Service">
+<meta property="og:description" content="Find out how you can use our systems or support us without breaking any of our rules.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0072ff">
+<meta name="robots" content="noindex, nohope, noluck">
+<style>
+/* ROOT VARIABLES — identical to your main site */
+:root {
+  --bg: #050511;
+  --text: #ffffff;
+  --text-dim: #c4c1d4;
+  --text-muted: #8d88a6;
+  --accent: #8d6bff;
+  --accent-soft: #c2b0ff;
+  --accent-strong: #f0e6ff;
+  --panel: rgba(255,255,255,0.05);
+  --panel-border: rgba(200,190,255,0.18);
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --blur: 18px;
+  --shadow-soft: 0 18px 60px rgba(0,0,0,0.65);
+}
+
+/* GLOBAL */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  background:
+    radial-gradient(circle at 0% 0%, rgba(120,82,255,0.25), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(135,205,255,0.18), transparent 55%),
+    radial-gradient(circle at 110% 10%, rgba(255,180,255,0.25), transparent 55%),
+    linear-gradient(145deg, #050511 0%, #050712 40%, #03030a 100%);
+
+  color: var(--text);
+  font-family: system-ui, Inter, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding-inline: 1.75rem;
+}
+
+/* NAVBAR */
+nav {
+  width: 100%;
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(var(--blur));
+  background: linear-gradient(
+    to bottom,
+    rgba(5,5,20,0.96),
+    rgba(5,5,20,0.82),
+    rgba(5,5,20,0.0)
+  );
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.nav-left img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 22px rgba(141,107,255,0.8));
+}
+
+.nav-left span {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-size: 0.92rem;
+}
+
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.86;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  opacity: 1;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--accent-soft);
+}
+
+@media (max-width: 720px) {
+  .nav-inner { gap: 1rem; }
+  .nav-links { gap: 1rem; font-size: 0.85rem; }
+  .nav-left span { font-size: 1rem; }
+}
+
+/* HERO */
+.hero {
+  padding: 90px 0 40px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.hero h1 span {
+  background: linear-gradient(120deg, var(--accent-strong), #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-top: 10px;
+}
+
+/* LEGAL SECTION CARDS */
+.section {
+  padding: 50px 0;
+}
+
+.section-title {
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.legal-card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(var(--blur));
+  box-shadow: var(--shadow-soft);
+  transition: 0.25s ease;
+}
+
+.legal-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(230,220,255,0.32);
+}
+
+.legal-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent-strong);
+  margin-bottom: 8px;
+}
+
+.legal-text {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.community-button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.community-button a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: #5865F2; /* Discord blurple */
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.community-button a img {
+  width: 20px;
+  height: 20px;
+}
+
+.community-button a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(88, 101, 242, 0.35);
+}
+
+/* FOOTER */
+footer {
+  margin-top: 60px;
+  padding: 24px 0 30px;
+  text-align: center;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(120,100,190,0.28);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="container nav-inner">
+    <div class="nav-left">
+      <img src="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png">
+      <span>Arriva Corporation</span>
+    </div>
+    <div class="nav-links">
+
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/careers.html">Careers</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/legal.html">Legal</a>
+      <a href="/support.html">Support</a>
+      <a href="#" class="active">ToS</a>
+      <a href="/privacypolicy.html">Privacy</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Terms of <span>Service</span></h1>
+    <p>Last Updated: 2025 — These terms govern your use of Arriva Corporation systems, services and products.</p>
+  </div>
+        <div class="community-button">
+  <a href="https://discord.gg/fYKf7aczEp" target="_blank" rel="noopener">
+    <img src="https://i.ibb.co/Z1WGzywW/image.png" alt="Discord">
+    <span>Join our community</span>
+  </a>
+</div>
+</section>
+
+<!-- LEGAL CONTENT -->
+<section class="section">
+  <div class="container">
+
+    <!-- ACCEPTANCE -->
+    <div class="legal-card">
+      <div class="legal-title">1. Acceptance of Terms</div>
+      <div class="legal-text">
+        By accessing or using any Arriva Corporation service — including RoAdmin, Licence Manager, RankGun,
+        Arriva Connecting Roblox, Cermona Foundation, internal dashboards, Discord bots, Cloudflare Worker APIs,
+        and related systems — you agree to these Terms of Service.
+      </div>
+    </div>
+
+    <!-- SCOPE -->
+    <div class="legal-card">
+      <div class="legal-title">2. Scope of Services</div>
+      <div class="legal-text">
+        Arriva Corporation operates multiple services including development tools, licensing systems, game
+        experiences, operational frameworks, APIs, automation systems and more. These terms apply to all
+        services under the Arriva Corporation ecosystem unless otherwise specified.
+      </div>
+    </div>
+
+    <!-- ACCOUNTS -->
+    <div class="legal-card">
+      <div class="legal-title">3. Account & Identity Requirements</div>
+      <div class="legal-text">
+        Certain services require identity linking through Roblox, Discord or internal authentication systems.
+        You are responsible for the accuracy and security of your linked accounts.
+      </div>
+    </div>
+
+    <!-- LICENSING -->
+    <div class="legal-card">
+      <div class="legal-title">4. Licensing & Access Control</div>
+      <div class="legal-text">
+        Product access may require active licences issued through Licence Manager or other technical systems.
+        Licences may be revoked for fraud, misuse, or breaches of these terms. Redistribution or unauthorised
+        sharing of licensed products is strictly prohibited.
+      </div>
+    </div>
+
+    <!-- API USAGE -->
+    <div class="legal-card">
+      <div class="legal-title">5. Developer Tools & API Usage</div>
+      <div class="legal-text">
+        APIs, Cloudflare Workers, dashboards, endpoints and backend utilities may only be used as documented.
+        Abuse, automation outside allowed limits, data scraping or reverse engineering is prohibited.
+      </div>
+    </div>
+
+    <!-- CONDUCT -->
+    <div class="legal-card">
+      <div class="legal-title">6. Conduct & Compliance</div>
+      <div class="legal-text">
+        You agree not to exploit systems, interfere with infrastructure, bypass restrictions, perform malicious
+        actions, or compromise stability. Violations may result in restriction or ban from Arriva services.
+      </div>
+    </div>
+
+    <!-- PAYMENTS -->
+    <div class="legal-card">
+      <div class="legal-title">7. Payments, Refunds & Entitlements</div>
+      <div class="legal-text">
+        Purchases of licences or products are final unless otherwise stated. Entitlements may depend on active
+        account linking and compliance with usage rules.
+      </div>
+    </div>
+
+    <!-- IP RIGHTS -->
+    <div class="legal-card">
+      <div class="legal-title">8. Intellectual Property</div>
+      <div class="legal-text">
+        All systems, code, branding, assets, frameworks and documentation are property of Arriva Corporation.
+        Modification, redistribution or misrepresentation is not permitted without explicit permission.
+      </div>
+    </div>
+
+    <!-- DATA -->
+    <div class="legal-card">
+      <div class="legal-title">9. Data Handling & Transparency</div>
+      <div class="legal-text">
+        Data collection is described in the Arriva Corporation Privacy Policy. Usage of services constitutes
+        agreement to those practices.
+      </div>
+    </div>
+
+    <!-- SECURITY -->
+    <div class="legal-card">
+      <div class="legal-title">10. Security & Abuse Prevention</div>
+      <div class="legal-text">
+        Measures exist to monitor system integrity, prevent fraud, enforce licence rules and detect malicious
+        activity. Attempts to bypass these systems are prohibited.
+      </div>
+    </div>
+
+    <!-- LIABILITY -->
+    <div class="legal-card">
+      <div class="legal-title">11. Limitations of Liability</div>
+      <div class="legal-text">
+        Arriva Corporation is not liable for outages, data issues, service interruptions, platform problems,
+        or losses resulting from misuse or third-party services such as Roblox, Discord or Cloudflare.
+      </div>
+    </div>
+
+    <!-- DISCLAIMER -->
+    <div class="legal-card">
+      <div class="legal-title">12. Disclaimers</div>
+      <div class="legal-text">
+        Services are provided “as-is” with no guarantees of uptime, performance or feature completeness.
+        Experimental features may be modified or removed at any time.
+      </div>
+    </div>
+
+    <!-- TERMINATION -->
+    <div class="legal-card">
+      <div class="legal-title">13. Termination</div>
+      <div class="legal-text">
+        Access to any Arriva Corporation system may be revoked for violating these terms, legal requirements,
+        or platform-specific rules.
+      </div>
+    </div>
+
+    <!-- DEPRECATED SERVICES -->
+    <div class="legal-card">
+      <div class="legal-title">14. Legacy Services — Arriva-Via AI (Deprecated)</div>
+      <div class="legal-text">
+        Arriva-Via AI was an experimental conversational system within the Arriva ecosystem. This service is now
+        fully deprecated, no longer maintained and should not be relied upon for functionality or support.
+        Legacy data and interactions fall under historical processing as outlined in the Privacy Policy.
+      </div>
+    </div>
+
+    <!-- CHANGES -->
+    <div class="legal-card">
+      <div class="legal-title">15. Changes to These Terms</div>
+      <div class="legal-text">
+        Arriva Corporation may revise these terms at any time. Continued use of services constitutes acceptance
+        of the updated terms.
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="legal-card">
+      <div class="legal-title">16. Contact</div>
+      <div class="legal-text">
+        For support, licensing or legal questions, please contact Arriva Corporation through our official
+        communication platforms.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">© Arriva Corporation 2025 — Terms of Service</div>
+</footer>
+
+</body>
+</html>

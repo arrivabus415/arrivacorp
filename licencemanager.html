@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arriva Corporation — Licence Manager</title>
+
+<link rel="icon" type="image/png" href="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<meta name="theme-color" content="#8d6bff">
+<meta name="robots" content="noindex, nofollow">
+
+<style>
+:root{
+  --bg:#050511;
+  --panel:rgba(255,255,255,.05);
+  --text:#fff;
+  --text-dim:#c4c1d4;
+  --accent:#8d6bff;
+  --radius:18px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+  background:linear-gradient(145deg,#050511,#03030a);
+  color:var(--text);
+}
+nav{
+  padding:16px 24px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+button{
+  cursor:pointer;
+  border:none;
+  border-radius:999px;
+  padding:10px 16px;
+  font-weight:600;
+}
+button:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+.primary{
+  background:var(--accent);
+  color:#fff;
+}
+.card{
+  background:var(--panel);
+  border:1px solid rgba(200,190,255,.18);
+  border-radius:var(--radius);
+  padding:24px;
+  margin-bottom:24px;
+}
+input,select{
+  width:100%;
+  padding:12px;
+  margin:8px 0 14px;
+  border-radius:12px;
+  border:1px solid rgba(200,190,255,.25);
+  background:#0b0a22;
+  color:#fff;
+}
+.alert{
+  padding:10px 14px;
+  border-radius:12px;
+  margin-bottom:12px;
+}
+.error{background:rgba(239,68,68,.15);color:#fca5a5}
+.success{background:rgba(16,185,129,.15);color:#6ee7b7}
+.container{max-width:1100px;margin:auto;padding:32px}
+.hidden{display:none}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <strong>Arriva Corporation</strong>
+  <button id="logoutBtn" class="hidden" onclick="logout()">Logout</button>
+</nav>
+
+<div class="container" id="app"></div>
+
+<script>
+const app = document.getElementById('app');
+const logoutBtn = document.getElementById('logoutBtn');
+
+/* ---------- HELPERS ---------- */
+function hasSession(){
+  return document.cookie.split(';').some(c => c.trim().startsWith('session='));
+}
+
+/* ---------- LOGIN ---------- */
+function showLogin(){
+  logoutBtn.classList.add('hidden');
+
+  app.innerHTML = `
+  <div class="card" style="max-width:420px;margin:auto">
+    <h2>Admin Login</h2>
+    <div id="login-msg"></div>
+    <form id="loginForm">
+      <input id="login-user" placeholder="Username" required autocomplete="username">
+      <input id="login-pass" type="password" placeholder="Password" required autocomplete="current-password">
+      <button id="loginBtn" class="primary" style="width:100%">Login</button>
+    </form>
+  </div>`;
+
+  document.getElementById('loginForm').addEventListener('submit', login);
+}
+
+/* ---------- DASHBOARD ---------- */
+function showDashboard(){
+  logoutBtn.classList.remove('hidden');
+
+  app.innerHTML = `
+  <div class="card">
+    <h2>User Lookup</h2>
+    <form id="lookupForm">
+      <input id="lookupUser" placeholder="Roblox username" required>
+      <button class="primary">Search</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>Blacklist</h2>
+    <form id="blacklistForm">
+      <input id="bl-user" placeholder="Roblox username" required>
+      <select id="bl-action">
+        <option value="true">Blacklist</option>
+        <option value="false">Remove</option>
+      </select>
+      <button class="primary">Apply</button>
+    </form>
+  </div>
+
+  <div id="results"></div>`;
+
+  document.getElementById('lookupForm').addEventListener('submit', lookup);
+  document.getElementById('blacklistForm').addEventListener('submit', blacklist);
+}
+
+/* ---------- LOGIN REQUEST ---------- */
+async function login(e){
+  e.preventDefault();
+
+  const msg = document.getElementById('login-msg');
+  const btn = document.getElementById('loginBtn');
+  const username = document.getElementById('login-user').value.trim();
+  const password = document.getElementById('login-pass').value;
+
+  btn.disabled = true;
+  msg.innerHTML = '';
+
+  try{
+    const r = await fetch('/api/login',{
+      method:'POST',
+      credentials:'include',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({ username, password })
+    });
+
+    const d = await r.json().catch(()=>({}));
+
+    if(r.ok && d.success){
+      showDashboard();
+    }else{
+      msg.innerHTML = `<div class="alert error">${d.error || 'Login failed'}</div>`;
+    }
+  }catch{
+    msg.innerHTML = `<div class="alert error">Network error</div>`;
+  }finally{
+    btn.disabled = false;
+  }
+}
+
+/* ---------- LOOKUP ---------- */
+async function lookup(e){
+  e.preventDefault();
+  const res = document.getElementById('results');
+  const username = document.getElementById('lookupUser').value.trim();
+
+  res.innerHTML = '';
+
+  try{
+    const r = await fetch('/api/licenses?username='+encodeURIComponent(username),{
+      credentials:'include'
+    });
+
+    const d = await r.json();
+
+    if(!r.ok || !d.success){
+      res.innerHTML = `<div class="alert error">${d.error || 'Lookup failed'}</div>`;
+      return;
+    }
+
+    res.innerHTML = `
+    <div class="card">
+      <strong>${d.data.username}</strong><br>
+      Status: ${d.data.blacklisted ? 'Blacklisted' : 'Active'}
+    </div>`;
+  }catch{
+    res.innerHTML = `<div class="alert error">Network error</div>`;
+  }
+}
+
+/* ---------- BLACKLIST ---------- */
+async function blacklist(e){
+  e.preventDefault();
+
+  const username = document.getElementById('bl-user').value.trim();
+  const blacklisted = document.getElementById('bl-action').value === 'true';
+
+  try{
+    const r = await fetch('/api/blacklist',{
+      method:'POST',
+      credentials:'include',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({ username, blacklisted })
+    });
+
+    if(!r.ok) throw 0;
+    alert('Blacklist updated');
+  }catch{
+    alert('Failed to update blacklist');
+  }
+}
+
+/* ---------- LOGOUT ---------- */
+async function logout(){
+  await fetch('/api/logout',{ method:'POST', credentials:'include' });
+  showLogin();
+}
+
+/* ---------- INIT ---------- */
+if(hasSession()){
+  showDashboard();
+}else{
+  showLogin();
+}
+</script>
+
+</body>
+</html>

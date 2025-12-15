@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support | Arriva Corporation</title>
+
+  <link rel="icon" type="image/png" href="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta property="og:title" content="Arriva Corporation - Support">
+  <meta property="og:description"
+    content="Need support? have a read over what support we provide and reach out to our team if needed.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0072ff">
+  <meta name="robots" content="noindex, nohope, noluck">
+  <style>
+    /* ROOT VARIABLES — identical to main page */
+    :root {
+      --bg: #050511;
+      --bg-alt: #080819;
+      --panel: rgba(255, 255, 255, 0.04);
+      --panel-strong: rgba(255, 255, 255, 0.08);
+      --text: #ffffff;
+      --text-dim: #c4c1d4;
+      --text-muted: #8d88a6;
+      --accent: #8d6bff;
+      --accent-soft: #c2b0ff;
+      --accent-strong: #f0e6ff;
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+      --blur: 18px;
+      --shadow-soft: 0 18px 60px rgba(0, 0, 0, 0.65);
+    }
+
+    /* GLOBAL */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+
+      background:
+        radial-gradient(circle at 0% 0%, rgba(120, 82, 255, 0.25) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(135, 205, 255, 0.18) 0, transparent 55%),
+        radial-gradient(circle at 110% 10%, rgba(255, 180, 255, 0.25) 0, transparent 55%),
+        linear-gradient(145deg, #050511 0%, #050712 40%, #03030a 100%);
+
+      color: var(--text);
+      font-family: system-ui, Inter, sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding-inline: 1.75rem;
+    }
+
+    /* NAVBAR */
+    nav {
+      width: 100%;
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(var(--blur));
+      background: linear-gradient(to bottom,
+          rgba(5, 5, 20, 0.96),
+          rgba(5, 5, 20, 0.82),
+          rgba(5, 5, 20, 0.0));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.75rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .nav-left img {
+      height: 40px;
+      width: 40px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 22px rgba(141, 107, 255, 0.8));
+    }
+
+    .nav-left span {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      font-size: 0.92rem;
+    }
+
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.2s ease, opacity 0.2s ease;
+      opacity: 0.86;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      opacity: 1;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a.active {
+      color: var(--accent-soft);
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        gap: 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.85rem;
+      }
+
+      .nav-left span {
+        font-size: 1rem;
+      }
+    }
+
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .support-card {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(200, 190, 255, .18);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      backdrop-filter: blur(var(--blur));
+      transition: .25s ease;
+    }
+
+    /* HERO (same layout style as your main page) */
+    .hero {
+      padding: 90px 0 40px;
+      text-align: center;
+    }
+
+    .hero-logo img {
+      width: 90px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(120deg, var(--accent-strong), #ffffff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: auto;
+      margin-top: 10px;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    /* SUPPORT CARDS — same style as team cards */
+    .support-section {
+      padding: 50px 0;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-dim);
+      margin-bottom: 26px;
+    }
+
+    .support-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(200, 190, 255, 0.18);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(var(--blur));
+      box-shadow: var(--shadow-soft);
+      transition: 0.25s ease;
+    }
+
+    .support-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(230, 220, 255, 0.32);
+    }
+
+    .support-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--accent-strong);
+    }
+
+    .support-desc {
+      font-size: 0.93rem;
+      color: var(--text-dim);
+      line-height: 1.55;
+    }
+
+    .community-button {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .community-button a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: #5865F2;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .community-button a img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .community-button a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(88, 101, 242, 0.35);
+    }
+
+    /* FOOTER (same spacing as main page) */
+    footer {
+      margin-top: 60px;
+      padding: 24px 0 30px;
+      text-align: center;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(120, 100, 190, 0.28);
+    }
+
+    /* =========================
+   CONTACT FORM
+   ========================= */
+
+    .contact-card {
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .form-section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 18px 0 12px;
+      color: var(--accent-strong);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(180, 170, 230, 0.35);
+      border-radius: 10px;
+      padding: 10px 12px;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    .form-group select {
+      appearance: none;
+      background-image:
+        linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+        linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+      background-position:
+        calc(100% - 18px) 50%,
+        calc(100% - 12px) 50%;
+      background-size: 6px 6px;
+      background-repeat: no-repeat;
+    }
+
+    .form-group select option {
+      background-color: #0e0e1c;
+      color: var(--text);
+    }
+
+    /* "Other" explanation field */
+    .other-box {
+      display: none;
+      margin-top: 8px;
+      animation: otherReveal 0.18s ease-out forwards;
+    }
+
+    @keyframes otherReveal {
+      from {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .form-hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255, 255, 255, 0.75);
+      color: #000;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .form-submit:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .support-section h2 {
+      text-align: center;
+    }
+
+    .support-section p {
+      text-align: center;
+    }
+
+    /* SUCCESS MODAL */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .modal-content {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(200, 190, 255, 0.25);
+      border-radius: 24px;
+      padding: 40px 50px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      backdrop-filter: blur(var(--blur));
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8);
+      animation: slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, #8d6bff, #c2b0ff);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      animation: checkPop 0.5s ease 0.2s backwards;
+    }
+
+    @keyframes checkPop {
+      0% {
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .modal-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--accent-strong);
+    }
+
+    .modal-message {
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .modal-ticket {
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      color: var(--accent-soft);
+      margin: 20px 0;
+      padding: 12px;
+      background: rgba(141, 107, 255, 0.1);
+      border-radius: 8px;
+      border: 1px solid rgba(141, 107, 255, 0.3);
+    }
+
+    .modal-button {
+      margin-top: 24px;
+      padding: 14px 40px;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255, 255, 255, 0.75);
+      color: #000;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .modal-button:hover {
+      background: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="nav-left">
+        <img src="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png">
+        <span>Arriva Corporation</span>
+      </div>
+      <div class="nav-links">
+
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/careers.html">Careers</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/legal.html">Legal</a>
+        <a href="#" class="active">Support</a>
+        <a href="/termsofservice.html">ToS</a>
+        <a href="/privacypolicy.html">Privacy</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-logo">
+        <img src="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png">
+      </div>
+
+      <h1>How can we <span>help you?</span></h1>
+      <p>
+        Assistance for licensing, technical issues, access problems, development tools
+        and systems used across Arriva Corporation projects.
+      </p>
+    </div>
+    <div class="community-button">
+      <a href="https://discord.gg/fYKf7aczEp" target="_blank" rel="noopener">
+        <img src="https://i.ibb.co/Z1WGzywW/image.png" alt="Discord">
+        <span>Join our community</span>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- CONTACT SUPPORT -->
+  <section class="support-section" id="contact-support">
+    <div class="container">
+      <h2 class="section-title">Contact Support</h2>
+      <p class="section-subtitle">
+        Submit a support request and our team will review it as soon as possible.
+      </p>
+
+      <div class="support-card contact-card">
+        <form id="support-form" enctype="multipart/form-data">
+
+          <!-- USER INFO -->
+          <h3 class="form-section-title">Your Details</h3>
+
+          <div class="form-group">
+            <label>Roblox Username (optional)</label>
+            <input type="text" name="roblox_username" placeholder="Roblox username">
+          </div>
+
+          <div class="form-group">
+            <label>Discord Username (optional)</label>
+            <input type="text" name="discord_username" placeholder="username#0000">
+          </div>
+
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" required placeholder="you@example.com">
+          </div>
+
+          <div class="form-group">
+            <label>Confirm Email Address</label>
+            <input type="email" name="email_confirm" required placeholder="Confirm email address">
+          </div>
+
+          <!-- ISSUE DETAILS -->
+          <h3 class="form-section-title">Issue Details</h3>
+
+          <div class="form-group">
+            <label>Device Type</label>
+            <select name="device" class="other-trigger" required>
+              <option value="" disabled selected hidden>Select device</option>
+              <option>PC / Windows</option>
+              <option>Mac</option>
+              <option>Mobile</option>
+              <option>Tablet</option>
+              <option>Console</option>
+              <option value="Other">Other</option>
+            </select>
+
+            <input type="text" name="device_other" class="other-box" placeholder="Please specify your device" />
+          </div>
+
+          <div class="form-group">
+            <label>Issue Type</label>
+            <select name="issue_type" class="other-trigger" required>
+              <option value="" disabled selected hidden>Select issue type</option>
+              <option>Licensing / Access</option>
+              <option>Bug Report</option>
+              <option>Backend / Systems</option>
+              <option>Performance Issues</option>
+              <option>Developer Tooling</option>
+              <option value="Other">Other</option>
+            </select>
+
+            <input type="text" name="issue_other" class="other-box" placeholder="Please explain the issue type" />
+          </div>
+
+
+          <div class="form-group">
+            <label>Describe the issue</label>
+            <textarea name="message" rows="5" required
+              placeholder="Explain what is happening, where it occurs, and any error messages."></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            Submit Ticket
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE CAN HELP WITH -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">What we can help with</h2>
+
+      <div class="support-grid">
+        <div class="support-card">
+          <h3>Licensing & access</h3>
+          <p>Licence validation, entitlement mismatches, account linking and access errors.</p>
+        </div>
+        <div class="support-card">
+          <h3>RoAdmin & tooling</h3>
+          <p>Configuration issues, permissions, module setup and internal tooling support.</p>
+        </div>
+        <div class="support-card">
+          <h3>Backend & systems</h3>
+          <p>Service errors, data integrity issues and infrastructure-related problems.</p>
+        </div>
+        <div class="support-card">
+          <h3>Performance & stability</h3>
+          <p>Unexpected lag, instability under load and system behaviour problems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">© Arriva Corporation 2025 — Support</div>
+  </footer>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-content">
+      <div class="modal-icon">✓</div>
+      <h2 class="modal-title">Ticket Submitted</h2>
+      <p class="modal-message">
+        Thank you for contacting our team. Please check your email for confirmation and further information.
+      </p>
+      <div class="modal-ticket" id="ticketDisplay"></div>
+      <button class="modal-button" id="continueBtn">Continue</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    /* =========================
+       EMAILJS INIT
+       ========================= */
+    (function () {
+      emailjs.init("TDqu6RA_k-QAGQkIa");
+    })();
+
+    /* =========================
+       TICKET ID GENERATOR
+       ========================= */
+    function generateTicketID(length = 14) {
+      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+      let id = "AC-";
+      for (let i = 0; i < length; i++) {
+        id += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return id;
+    }
+
+    /* =========================
+       OTHER FIELD TOGGLING
+       ========================= */
+    document.querySelectorAll(".form-group").forEach(group => {
+      const select = group.querySelector(".other-trigger");
+      const otherBox = group.querySelector(".other-box");
+
+      if (!select || !otherBox) return;
+
+      otherBox.style.display = "none";
+      otherBox.required = false;
+
+      select.addEventListener("change", () => {
+        const isOther = select.value === "Other";
+        otherBox.style.display = isOther ? "block" : "none";
+        otherBox.required = isOther;
+        if (!isOther) otherBox.value = "";
+      });
+    });
+
+    /* =========================
+       SUCCESS MODAL FUNCTIONS
+       ========================= */
+    function showSuccessModal(ticketID) {
+      const modal = document.getElementById("successModal");
+      const ticketDisplay = document.getElementById("ticketDisplay");
+
+      ticketDisplay.textContent = `Reference: ${ticketID}`;
+      modal.classList.add("show");
+
+      // Prevent body scroll
+      document.body.style.overflow = "hidden";
+    }
+
+    function hideSuccessModal() {
+      const modal = document.getElementById("successModal");
+      modal.classList.remove("show");
+
+      // Restore body scroll
+      document.body.style.overflow = "";
+    }
+
+    // Continue button handler
+    document.getElementById("continueBtn").addEventListener("click", hideSuccessModal);
+
+    // Close modal on overlay click
+    document.getElementById("successModal").addEventListener("click", (e) => {
+      if (e.target.id === "successModal") {
+        hideSuccessModal();
+      }
+    });
+
+    /* =========================
+       FORM SUBMIT
+       ========================= */
+    const form = document.getElementById("support-form");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      /* Email confirm check */
+      const email = form.querySelector('[name="email"]').value.trim();
+      const confirm = form.querySelector('[name="email_confirm"]').value.trim();
+      if (email !== confirm) {
+        alert("Email addresses do not match.");
+        return;
+      }
+
+      /* Resolve DEVICE */
+      const deviceSelect = form.querySelector('[name="device"]');
+      const deviceOther = form.querySelector('[name="device_other"]');
+      if (deviceSelect.value === "Other" && deviceOther.value.trim()) {
+        deviceSelect.value = deviceOther.value.trim();
+      }
+
+      /* Resolve ISSUE TYPE */
+      const issueSelect = form.querySelector('[name="issue_type"]');
+      const issueOther = form.querySelector('[name="issue_other"]');
+      if (issueSelect.value === "Other" && issueOther.value.trim()) {
+        issueSelect.value = issueOther.value.trim();
+      }
+
+      /* Ticket ID (persistent for both emails) */
+      let ticket = form.querySelector('[name="ticket_id"]');
+      if (!ticket) {
+        ticket = document.createElement("input");
+        ticket.type = "hidden";
+        ticket.name = "ticket_id";
+        form.appendChild(ticket);
+      }
+      ticket.value = generateTicketID();
+
+      const submitBtn = form.querySelector(".form-submit");
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Sending…";
+
+      /* USER CONFIRMATION EMAIL */
+      emailjs.sendForm(
+        "service_qffvwxe",
+        "template_o4msykw",
+        form
+      )
+        .then(() => {
+          /* INTERNAL STAFF EMAIL */
+          return emailjs.sendForm(
+            "service_qffvwxe",
+            "template_l98k8fh",
+            form
+          );
+        })
+        .then(() => {
+          // Show custom success modal instead of alert
+          showSuccessModal(ticket.value);
+
+          // Reset form
+          form.reset();
+          document.querySelectorAll(".other-box").forEach(b => {
+            b.style.display = "none";
+            b.required = false;
+          });
+        })
+        .catch(err => {
+          console.error(err);
+          alert("Ticket sent, but internal notification may have failed.");
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Submit Ticket";
+        });
+    });
+  </script>
+
+</body>
+
+</html>

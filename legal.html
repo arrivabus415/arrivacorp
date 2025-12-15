@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Legal Information | Arriva Corporation</title>
+
+<link rel="icon" type="image/png" href="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<meta property="og:title" content="Arriva Corporation - Legal">
+<meta property="og:description" content="Find out how Arriva Corporation supports the legal aspect of the world.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0072ff">
+<meta name="robots" content="noindex, nohope, noluck">
+<style>
+/* ROOT VARIABLES */
+:root {
+  --bg: #050511;
+  --text: #ffffff;
+  --text-dim: #c4c1d4;
+  --text-muted: #8d88a6;
+  --accent: #8d6bff;
+  --accent-soft: #c2b0ff;
+  --accent-strong: #f0e6ff;
+  --panel: rgba(255,255,255,0.05);
+  --panel-border: rgba(200,190,255,0.18);
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --blur: 18px;
+  --shadow-soft: 0 18px 60px rgba(0,0,0,0.65);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ---------------- GLOBAL LAYOUT FIX ---------------- */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  flex: 1;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(120,82,255,0.25), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(135,205,255,0.18), transparent 55%),
+    radial-gradient(circle at 110% 10%, rgba(255,180,255,0.25), transparent 55%),
+    linear-gradient(145deg, #050511 0%, #050712 40%, #03030a 100%);
+  color: var(--text);
+  font-family: system-ui, Inter, sans-serif;
+}
+
+main {
+  flex: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding-inline: 1.75rem;
+}
+
+/* NAVBAR */
+nav {
+  width: 100%;
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(var(--blur));
+  background: linear-gradient(
+    to bottom,
+    rgba(5,5,20,0.96),
+    rgba(5,5,20,0.82),
+    rgba(5,5,20,0.0)
+  );
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.nav-left img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 22px rgba(141,107,255,0.8));
+}
+
+.nav-left span {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-size: 0.92rem;
+}
+
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.86;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  opacity: 1;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--accent-soft);
+}
+
+@media (max-width: 720px) {
+  .nav-inner { gap: 1rem; }
+  .nav-links { gap: 1rem; font-size: 0.85rem; }
+  .nav-left span { font-size: 1rem; }
+}
+
+
+/* HERO */
+.hero {
+  padding: 90px 0 40px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.hero h1 span {
+  background: linear-gradient(120deg, var(--accent-strong), #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  margin-top: 10px;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+/* LEGAL GRID */
+.section {
+  padding: 50px 0;
+}
+
+.legal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 22px;
+}
+
+.legal-card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  backdrop-filter: blur(var(--blur));
+  box-shadow: var(--shadow-soft);
+  transition: 0.25s ease;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.legal-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(230,220,255,0.32);
+}
+
+.legal-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent-strong);
+  margin-bottom: 8px;
+}
+
+.legal-text {
+  color: var(--text-dim);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+.community-button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.community-button a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: #5865F2; /* Discord blurple */
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.community-button a img {
+  width: 20px;
+  height: 20px;
+}
+
+.community-button a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(88, 101, 242, 0.35);
+}
+/* FOOTER */
+footer {
+  margin-top: auto;
+  padding: 24px 0 30px;
+  text-align: center;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(120,100,190,0.28);
+}
+
+</style>
+</head>
+
+<body>
+<!-- NAVBAR -->
+<nav>
+  <div class="container nav-inner">
+    <div class="nav-left">
+      <img src="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png">
+      <span>Arriva Corporation</span>
+    </div>
+    <div class="nav-links">
+       <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/careers.html">Careers</a>
+      <a href="/projects.html">Projects</a>
+      <a href="#" class="active">Legal</a>
+      <a href="/support.html">Support</a>
+      <a href="/termsofservice.html">ToS</a>
+      <a href="/privacypolicy.html">Privacy</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Legal <span>Information</span></h1>
+    <p>
+      Centralised access to all official documents, policies and compliance information
+      for Arriva Corporation services and products.
+    </p>
+  </div>
+        <div class="community-button">
+  <a href="https://discord.gg/fYKf7aczEp" target="_blank" rel="noopener">
+    <img src="https://i.ibb.co/Z1WGzywW/image.png" alt="Discord">
+    <span>Join our community</span>
+  </a>
+</div>
+</section>
+
+<!-- LEGAL GRID -->
+<section class="section">
+  <div class="container">
+
+    <div class="legal-grid">
+
+      <a href="/tos" class="legal-card">
+        <div class="legal-title">Terms of Service</div>
+        <div class="legal-text">
+          The rules governing use of Arriva Corporation systems, products and services.
+        </div>
+      </a>
+
+      <a href="/privacy" class="legal-card">
+        <div class="legal-title">Privacy Policy</div>
+        <div class="legal-text">
+          How we collect, store, handle and protect data across all Arriva systems.
+        </div>
+      </a>
+
+      <a href="/licenses" class="legal-card">
+        <div class="legal-title">Licensing Terms</div>
+        <div class="legal-text">
+          Terms for product licences, entitlement rules, revocation conditions and usage limits.
+        </div>
+      </a>
+
+      <a href="/deprecated" class="legal-card">
+        <div class="legal-title">Legacy & Deprecated Services</div>
+        <div class="legal-text">
+          Details on discontinued systems such as Arriva-Via AI and how legacy data is handled.
+        </div>
+      </a>
+
+      <a href="/compliance" class="legal-card">
+        <div class="legal-title">Compliance & Security</div>
+        <div class="legal-text">
+          Information regarding system security, abuse prevention, and compliance measures.
+        </div>
+      </a>
+
+      <a href="/contact" class="legal-card">
+        <div class="legal-title">Contact & Legal Enquiries</div>
+        <div class="legal-text">
+          Official channels for legal questions, DMCA notices, data requests and formal communication.
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">© Arriva Corporation 2025 — Legal Information</div>
+</footer>
+
+</body>
+</html>

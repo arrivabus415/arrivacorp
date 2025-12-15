@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us | Arriva Corporation</title>
+
+<link rel="icon" type="image/png" href="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<meta property="og:title" content="Arriva Corporation - About">
+<meta property="og:description" content="Find out what The Arriva Corporation is about and how we operate.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0072ff">
+<meta name="robots" content="noindex, nohope, noluck">
+
+<style>
+:root {
+  --bg: #050511;
+  --bg-alt: #080819;
+  --panel: rgba(255,255,255,0.04);
+  --panel-strong: rgba(255,255,255,0.08);
+  --text: #ffffff;
+  --text-dim: #c4c1d4;
+  --text-muted: #8d88a6;
+  --accent: #8d6bff;
+  --accent-soft: #c2b0ff;
+  --accent-strong: #f0e6ff;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-pill: 999px;
+  --blur: 18px;
+  --shadow-soft: 0 18px 60px rgba(0,0,0,0.65);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(120,82,255,0.25) 0, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(135,205,255,0.18) 0, transparent 55%),
+    radial-gradient(circle at 110% 10%, rgba(255,180,255,0.25) 0, transparent 55%),
+    linear-gradient(145deg, #050511 0%, #050712 40%, #03030a 100%);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding-inline: 1.75rem;
+}
+
+/* NAVBAR */
+nav {
+  width: 100%;
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(var(--blur));
+  background: linear-gradient(
+    to bottom,
+    rgba(5,5,20,0.96),
+    rgba(5,5,20,0.82),
+    rgba(5,5,20,0.0)
+  );
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.nav-left img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 22px rgba(141,107,255,0.8));
+}
+
+.nav-left span {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-size: 0.92rem;
+}
+
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.86;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  opacity: 1;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--accent-soft);
+}
+
+@media (max-width: 720px) {
+  .nav-inner { gap: 1rem; }
+  .nav-links { gap: 1rem; font-size: 0.85rem; }
+  .nav-left span { font-size: 1rem; }
+}
+
+
+/* HERO */
+.hero {
+  padding: 90px 0 50px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.9rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.hero h1 span {
+  background: linear-gradient(120deg, var(--accent-strong), #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 680px;
+  margin: auto;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-top: 10px;
+}
+
+/* SECTIONS */
+.section {
+  padding: 50px 0;
+}
+
+.section-title {
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-dim);
+  max-width: 680px;
+  margin-bottom: 26px;
+}
+
+.panel {
+  background: rgba(10,9,35,0.96);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(200,190,255,0.18);
+  padding: 26px;
+  backdrop-filter: blur(var(--blur));
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 26px;
+}
+
+.panel h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--accent-soft);
+}
+
+.panel p {
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+/* GRID for milestones */
+.milestone-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.milestone-card {
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  backdrop-filter: blur(var(--blur));
+  border: 1px solid rgba(200,190,255,0.18);
+  transition: 0.25s ease;
+}
+
+.milestone-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(230,220,255,0.32);
+}
+
+.milestone-card h4 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: var(--accent-strong);
+}
+
+.milestone-card p {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+/* LEADERSHIP GRID */
+.lead-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 22px;
+}
+
+.lead-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  border: 1px solid rgba(200,190,255,0.18);
+  backdrop-filter: blur(var(--blur));
+  transition: 0.25s ease;
+}
+
+.lead-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(230,220,255,0.32);
+}
+
+.lead-name {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.lead-role {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-soft);
+  margin-bottom: 10px;
+}
+
+.lead-desc {
+  font-size: 0.92rem;
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 60px;
+  padding: 24px 0 30px;
+  text-align: center;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(120,100,190,0.28);
+}
+.community-button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.community-button a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: #5865F2; /* Discord blurple */
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.community-button a img {
+  width: 20px;
+  height: 20px;
+}
+
+.community-button a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(88, 101, 242, 0.35);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<!-- NAVBAR -->
+<nav>
+  <div class="container nav-inner">
+    <div class="nav-left">
+      <img src="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png">
+      <span>Arriva Corporation</span>
+    </div>
+    <div class="nav-links">
+       <a href="/index.html">Home</a>
+             <a href="#" class="active">About</a>
+      <a href="/careers.html">Careers</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/legal.html">Legal</a>
+      <a href="/support.html">Support</a>
+      <a href="/termsofservice.html">ToS</a>
+      <a href="/privacypolicy.html">Privacy</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>About <span>Arriva Corporation</span></h1>
+    <p>
+      Arriva Corporation is a multi-division Roblox development studio focused on frameworks,
+      infrastructure tooling, high-polish systems and immersive experiences.
+    </p>
+  </div>
+      <div class="community-button">
+      <a href="https://discord.gg/fYKf7aczEp" target="_blank" rel="noopener">
+        <img src="https://i.ibb.co/Z1WGzywW/image.png" alt="Discord">
+        <span>Join our community</span>
+      </a>
+    </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">What We Do</h2>
+    <p class="section-subtitle">
+      We build systems, frameworks and worlds — always prioritising quality, structure and long-term stability.
+    </p>
+
+    <div class="panel">
+      <h3>Frameworks & Infrastructure</h3>
+      <p>
+        From authentication systems and licensing to administrative tooling and backend services, we design
+        the internal machinery that powers Roblox experiences. Projects like RoAdmin and Licence Manager
+        support thousands of users and developers.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h3>Experiences & Worlds</h3>
+      <p>
+        We operate community-focused experiences such as Arriva Connecting Roblox, alongside atmospheric,
+        narrative-driven worlds like the Cermona Foundation. Every experience is built on custom systems
+        designed in-house.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h3>Tooling & Developer Support</h3>
+      <p>
+        Our internal tools help teams work efficiently — from moderation systems to dashboards, automated
+        processes and intelligent infrastructure integrations.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Our Philosophy</h2>
+    <p class="section-subtitle">
+      We believe good systems outlive trends. Our focus is always stability, maintainability and polish —
+      while keeping passion and creativity at the centre.
+    </p>
+
+    <div class="panel">
+      <p>
+        We don’t chase fame, algorithms or rapid pushes. Instead, we prioritise thoughtful development: planning,
+        refinement and clear standards. Each project — whether a framework or a full experience — receives the time
+        and structure it deserves.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- MILESTONES -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Milestones</h2>
+    <p class="section-subtitle">A brief look at our growth and major developments.</p>
+
+    <div class="milestone-grid">
+
+      <div class="milestone-card">
+        <h4>Arriva Corporation Founded</h4>
+        <p>Started as a small Roblox development group focused on transport and community systems.</p>
+      </div>
+
+      <div class="milestone-card">
+        <h4>Licence Manager Created</h4>
+        <p>Introduced a secure licensing, authentication and access-control system used across multiple experiences.</p>
+      </div>
+
+      <div class="milestone-card">
+        <h4>RoAdmin Launched</h4>
+        <p>A modular administrative framework inspired by txAdmin, powering reliable control systems for studios.</p>
+      </div>
+
+      <div class="milestone-card">
+        <h4>Cermona Foundation Development</h4>
+        <p>Started work on a large-scale atmospheric facility project with advanced internal systems and narrative depth.</p>
+      </div>
+
+      <div class="milestone-card">
+        <h4>ACR Expansion</h4>
+        <p>Arriva Connecting Roblox grew into a structured transport community offering consistent, realistic operations.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Leadership</h2>
+    <p class="section-subtitle">The people guiding Arriva Corporation’s direction and standards.</p>
+
+    <div class="lead-grid">
+
+      <div class="lead-card">
+        <div class="lead-name">Arriva</div>
+        <div class="lead-role">Chief Executive Officer</div>
+        <div class="lead-desc">
+          Oversees project vision, systems direction, staffing structure and internal standards.
+          Leads development on infrastructure and multi-project integrations.
+        </div>
+      </div>
+
+      <div class="lead-card">
+        <div class="lead-name">TheDev321</div>
+        <div class="lead-role">Lead Developer</div>
+        <div class="lead-desc">
+          Responsible for systems engineering, code quality, architectural planning and implementation of
+          core frameworks.
+        </div>
+      </div>
+
+      <div class="lead-card">
+        <div class="lead-name">Ben</div>
+        <div class="lead-role">Chief Operations Officer</div>
+        <div class="lead-desc">
+          Manages internal operations, workflow coordination and supports cross-project organisation.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">© Arriva Corporation 2025 — About Us.</div>
+</footer>
+
+</body>
+</html>

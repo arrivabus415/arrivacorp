@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Careers | Arriva Corporation</title>
+
+<link rel="icon" type="image/png" href="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<meta property="og:title" content="Arriva Corporation - Careers">
+<meta property="og:description" content="Interested in joining our team? then take a look at our positions and see if you can fit in with out team.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0072ff">
+<meta name="robots" content="noindex, nohope, noluck">
+<style>
+:root {
+  --bg: #050511;
+  --bg-alt: #080819;
+  --panel: rgba(255,255,255,0.04);
+  --panel-strong: rgba(255,255,255,0.08);
+  --text: #ffffff;
+  --text-dim: #c4c1d4;
+  --text-muted: #8d88a6;
+  --accent: #8d6bff;
+  --accent-soft: #c2b0ff;
+  --accent-strong: #f0e6ff;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-pill: 999px;
+  --blur: 18px;
+  --shadow-soft: 0 18px 60px rgba(0,0,0,0.65);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(120,82,255,0.25) 0, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(135,205,255,0.18) 0, transparent 55%),
+    radial-gradient(circle at 110% 10%, rgba(255,180,255,0.25) 0, transparent 55%),
+    linear-gradient(145deg, #050511 0%, #050712 40%, #03030a 100%);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 1.75rem;
+}
+
+@media (max-width: 640px) {
+  .container { padding-inline: 1.25rem; }
+}
+
+
+/* NAVBAR */
+nav {
+  width: 100%;
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(var(--blur));
+  background: linear-gradient(
+    to bottom,
+    rgba(5,5,20,0.96),
+    rgba(5,5,20,0.82),
+    rgba(5,5,20,0.0)
+  );
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.nav-left img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 22px rgba(141,107,255,0.8));
+}
+
+.nav-left span {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-size: 0.92rem;
+}
+
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.86;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  opacity: 1;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--accent-soft);
+}
+
+@media (max-width: 720px) {
+  .nav-inner { gap: 1rem; }
+  .nav-links { gap: 1rem; font-size: 0.85rem; }
+  .nav-left span { font-size: 1rem; }
+}
+
+
+/* HERO */
+.hero {
+  padding: 80px 0 40px;
+}
+
+.hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(200, 180, 255, 0.4);
+  background-color: rgba(22,16,45,0.9);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-strong);
+  margin-bottom: 16px;
+}
+
+.hero-kicker-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #72ffb6;
+  box-shadow: 0 0 12px rgba(114,255,182,0.9);
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+
+.hero h1 span {
+  background: linear-gradient(120deg, var(--accent-strong), #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 1rem;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.hero-actions {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border-radius: var(--radius-pill);
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background: none;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background: radial-gradient(circle at 0 0, rgba(255,255,255,0.27), transparent 60%);
+  background-color: rgba(77, 55, 180, 0.95);
+  border-color: rgba(214, 200, 255, 0.6);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.75);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 55px rgba(0,0,0,0.9);
+  background-color: rgba(97, 70, 215, 1);
+}
+
+.btn-ghost {
+  border-color: rgba(160, 150, 210, 0.55);
+  color: var(--accent-soft);
+  background-color: rgba(16, 14, 40, 0.9);
+}
+
+.btn-ghost:hover {
+  background-color: rgba(28, 24, 70, 0.95);
+  border-color: rgba(200, 190, 255, 0.75);
+}
+
+/* SECTIONS */
+.section {
+  padding: 40px 0;
+}
+
+.section-header {
+  margin-bottom: 24px;
+}
+
+.section-kicker {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-size: 1.7rem;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  font-size: 0.96rem;
+  color: var(--text-dim);
+}
+
+/* DEPARTMENT PANELS */
+.dept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.dept-card {
+  background:
+    radial-gradient(circle at 0 0, rgba(142,118,255,0.12), transparent 60%),
+    rgba(10, 9, 35, 0.96);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(180, 165, 255, 0.2);
+  padding: 20px 20px 18px;
+  backdrop-filter: blur(var(--blur));
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  transition: 0.22s ease;
+}
+
+.dept-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.95);
+  border-color: rgba(210, 200, 255, 0.4);
+}
+
+.dept-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.dept-desc {
+  font-size: 0.92rem;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.dept-status {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(200,190,255,0.35);
+  background: rgba(18,16,45,0.85);
+  color: var(--accent-soft);
+}
+
+.dept-status.open {
+  border-color: rgba(120,255,190,0.6);
+  color: #9dffd3;
+}
+
+.dept-status.closed {
+  border-color: rgba(255,150,150,0.55);
+  color: #ffb3b3;
+}
+
+
+.community-button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.community-button a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: #5865F2; /* Discord blurple */
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.community-button a img {
+  width: 20px;
+  height: 20px;
+}
+
+.community-button a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(88, 101, 242, 0.35);
+}
+
+
+/* ROLES INSIDE DEPT */
+.role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(200,190,255,0.45);
+  background-color: rgba(15,14,40,0.98);
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-soft);
+}
+
+.role-list {
+  list-style: none;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+.role-list li {
+  margin-bottom: 5px;
+}
+
+/* HOW WE HIRE / EXPECTATIONS */
+.info-panel {
+  margin-top: 10px;
+  border-radius: var(--radius-lg);
+  padding: 18px 18px 16px;
+  border: 1px solid rgba(190,175,255,0.22);
+  background:
+    radial-gradient(circle at 0 0, rgba(160,130,255,0.18), transparent 55%),
+    linear-gradient(135deg, rgba(8,9,35,0.98), rgba(5,4,18,0.98));
+  backdrop-filter: blur(var(--blur));
+  box-shadow: var(--shadow-soft);
+  font-size: 0.93rem;
+  color: var(--text-dim);
+}
+
+.info-panel strong {
+  color: var(--accent-soft);
+}
+
+.info-list {
+  margin-top: 8px;
+  padding-left: 18px;
+}
+
+.info-list li {
+  margin-bottom: 4px;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 60px;
+  padding: 24px 0 30px;
+  text-align: center;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(120,100,190,0.28);
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="container nav-inner">
+    <div class="nav-left">
+      <img src="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png">
+      <span>Arriva Corporation</span>
+    </div>
+    <div class="nav-links">
+       <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="#" class="active">Careers</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/legal.html">Legal</a>
+      <a href="/support.html">Support</a>
+      <a href="/termsofservice.html">ToS</a>
+      <a href="/privacypolicy.html">Privacy</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-kicker">
+      <span class="hero-kicker-dot"></span>
+      <span>Careers at Arriva Corporation</span>
+    </div>
+
+    <h1>Help build <span>systems, worlds and communities</span>.</h1>
+
+    <p>
+      Arriva Corporation works across frameworks, infrastructure, transport experiences and facility projects.
+      We look for people who care about polish, systems thinking and long-term projects.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#departments" class="btn btn-primary">View departments</a>
+      <a href="#process" class="btn btn-ghost">How recruitment works</a>
+    </div>
+        <div class="community-button">
+      <a href="https://discord.gg/fYKf7aczEp" target="_blank" rel="noopener">
+        <img src="https://i.ibb.co/Z1WGzywW/image.png" alt="Discord">
+        <span>Join our community</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTMENTS -->
+<section class="section" id="departments">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Departments</div>
+      <h2 class="section-title">Where you can contribute</h2>
+      <p class="section-subtitle">
+        Roles are flexible and often overlap across projects. We care more about how you think and work
+        than strict titles.
+      </p>
+    </div>
+
+    <div class="dept-grid">
+
+      <!-- Development -->
+      <div class="dept-card">
+        <div class="dept-name">Development</div>
+        <div class="dept-status open">Positions Available</div>
+
+        <p class="dept-desc">
+          Responsible for the systems that drive our projects: frameworks, tools, game logic and technical assets.
+        </p>
+        <div class="role-pill">Example roles</div>
+        <ul class="role-list">
+          <li><strong>Front-End Developer</strong> — Interfaces, dashboards and in-experience UI.</li>
+          <li><strong>Back-End / Systems Developer</strong> — Core services, APIs and infrastructure.</li>
+          <li><strong>Roblox Scripter</strong> — Lua/U gameplay systems, automation and in-game logic.</li>
+          <li><strong>GFX Designer</strong> — Icons, branding, thumbnails and visual polish.</li>
+          <li><strong>SFX / Audio Designer</strong> — Sound effects, ambience and feedback cues.</li>
+        </ul>
+      </div>
+
+      <!-- Moderation -->
+      <div class="dept-card">
+        <div class="dept-name">Moderation</div>
+        <div class="dept-status open">Positions Available</div>
+
+        <p class="dept-desc">
+          Keeps communities structured, fair and safe — from basic in-game moderation to high-level admin decisions.
+        </p>
+        <div class="role-pill">Example roles</div>
+        <ul class="role-list">
+          <li><strong>Junior Moderator</strong></li>
+          <li><strong>Moderator</strong></li>
+          <li><strong>Senior Moderator</strong></li>
+          <li><strong>Head Moderator</strong></li>
+          <li><strong>Administrator</strong></li>
+          <li><strong>Senior Administrator</strong></li>
+          <li><strong>Head Administrator</strong></li>
+        </ul>
+      </div>
+
+      <!-- Security -->
+      <div class="dept-card">
+        <div class="dept-name">Security</div>
+        <div class="dept-status open">Positions Available</div>
+
+        <p class="dept-desc">
+          Works on licence systems, access control, anti-abuse measures and overall project safety and integrity.
+        </p>
+        <div class="role-pill">Example roles</div>
+        <ul class="role-list">
+          <li><strong>Security Operator</strong> — Monitors activity and responds to security incidents.</li>
+          <li><strong>Licensing Manager</strong> — Manages licences, keys, links and revocations.</li>
+          <li><strong>Compliance Reviewer</strong> — Ensures projects follow internal rules and legal guidance.</li>
+          <li><strong>Data & Access Controller</strong> — Handles sensitive permissions and access structures.</li>
+        </ul>
+      </div>
+
+      <!-- Internal Operations -->
+      <div class="dept-card">
+        <div class="dept-name">Internal Operations</div>
+        <div class="dept-status open">Positions Available</div>
+
+        <p class="dept-desc">
+          Focused on workflow, staff support and making sure internal systems run smoothly behind the scenes.
+        </p>
+        <div class="role-pill">Example roles</div>
+        <ul class="role-list">
+          <li><strong>Internal Tools Operator</strong> — Uses control panels, dashboards and admin tooling.</li>
+          <li><strong>Staff Coordinator</strong> — Organises staff, sessions and coverage.</li>
+          <li><strong>Operations Assistant</strong> — General support across teams and management.</li>
+        </ul>
+      </div>
+
+      <!-- Testing & QA -->
+      <div class="dept-card">
+        <div class="dept-name">Testing & QA</div>
+        <div class="dept-status closed">No Positions Available</div>
+
+        <p class="dept-desc">
+          Dedicated to structured testing, finding issues early and making sure changes actually work in live environments.
+        </p>
+        <div class="role-pill">Typical roles</div>
+        <ul class="role-list">
+          <li><strong>QA Tester</strong> — Tests features, systems and workflows.</li>
+          <li><strong>Systems Tester</strong> — Stress-tests frameworks, automation and back-end logic.</li>
+          <li><strong>Release Verifier</strong> — Signs off builds and checks for regressions.</li>
+        </ul>
+      </div>
+
+      <!-- Management -->
+      <div class="dept-card">
+        <div class="dept-name">Management</div>
+        <div class="dept-status closed">No Positions Available</div>
+
+        <p class="dept-desc">
+          Provides long-term direction, oversight and structure across all departments and key projects.
+        </p>
+        <div class="role-pill">Typical roles</div>
+        <ul class="role-list">
+          <li><strong>Staff Supervisor</strong> — Direct support and oversight for staff teams.</li>
+          <li><strong>Staff Management Team</strong> — Handles escalations, standards and structure.</li>
+          <li><strong>Senior Management</strong> — Sets wider priorities, policies and goals.</li>
+          <li><strong>Project Lead</strong> — Owns major projects or frameworks end-to-end.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS / EXPECTATIONS -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Process</div>
+      <h2 class="section-title">How recruitment works</h2>
+      <p class="section-subtitle">
+        Arriva Corporation recruitment is structured but practical. We prioritise reliability, communication and
+        how well you fit into long-running projects.
+      </p>
+    </div>
+
+    <div class="info-panel">
+      <p>
+        <strong>Applications are normally handled through our communication platforms</strong>
+        (such as Discord or internal portals). Specific instructions are shared when positions are open.
+      </p>
+
+      <ul class="info-list">
+        <li>We look for people who can communicate clearly and handle feedback.</li>
+        <li>Prior experience is helpful, but strong examples of your work matter more.</li>
+        <li>Most roles are collaborative and require regular, respectful communication with other staff.</li>
+        <li>Some positions may involve access to internal tools, logs or confidential information.</li>
+      </ul>
+
+      <p style="margin-top:10px;">
+        If you are interested in joining a project, please follow any recruitment announcements or contact
+        Arriva Corporation through the usual channels when applications are open.
+      </p>
+    </div>
+
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © Arriva Corporation 2025 — Careers & Recruitment.
+  </div>
+</footer>
+
+</body>
+</html>

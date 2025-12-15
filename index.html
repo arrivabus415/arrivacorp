@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arriva Corporation</title>
+
+<link rel="icon" type="image/png" href="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<meta property="og:title" content="Arriva Corporation">
+<meta property="og:description" content="Arriva Corporation specialises in frameworks, infrastructure tooling, internal systems and immersive Roblox experiences — built with long-term stability and polish in mind.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0072ff">
+<meta name="robots" content="noindex, nohope, noluck">
+<style>
+:root {
+  --bg: #050511;
+  --bg-alt: #080819;
+  --panel: rgba(255,255,255,0.04);
+  --panel-strong: rgba(255,255,255,0.08);
+  --text: #ffffff;
+  --text-dim: #c4c1d4;
+  --text-muted: #8d88a6;
+  --accent: #8d6bff;
+  --accent-soft: #c2b0ff;
+  --accent-strong: #f0e6ff;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --blur: 18px;
+  --shadow-soft: 0 18px 60px rgba(0,0,0,0.65);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(120,82,255,0.25) 0, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(135,205,255,0.18) 0, transparent 55%),
+    radial-gradient(circle at 110% 10%, rgba(255,180,255,0.25) 0, transparent 55%),
+    linear-gradient(145deg, #050511 0%, #050712 40%, #03030a 100%);
+  color: var(--text);
+  font-family: system-ui, Inter, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding-inline: 1.75rem;
+}
+
+/* NAVBAR */
+nav {
+  width: 100%;
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(var(--blur));
+  background: linear-gradient(
+    to bottom,
+    rgba(5,5,20,0.96),
+    rgba(5,5,20,0.82),
+    rgba(5,5,20,0.0)
+  );
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.nav-left img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 22px rgba(141,107,255,0.8));
+}
+
+.nav-left span {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-size: 0.92rem;
+}
+
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.86;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  opacity: 1;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--accent-soft);
+}
+
+@media (max-width: 720px) {
+  .nav-inner { gap: 1rem; }
+  .nav-links { gap: 1rem; font-size: 0.85rem; }
+  .nav-left span { font-size: 1rem; }
+}
+
+/* HERO */
+.hero {
+  padding: 90px 0 50px;
+  text-align: center;
+}
+
+.hero-logo img {
+  width: 90px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 2.9rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.hero h1 span {
+  background: linear-gradient(120deg, var(--accent-strong), #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 680px;
+  margin: auto;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-top: 10px;
+}
+
+.hero-actions {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn {
+  border-radius: var(--radius-pill);
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  background: none;
+  color: var(--text);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background-color: rgba(77,55,180,0.95);
+  border-color: rgba(214,200,255,0.6);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background-color: rgba(97,70,215,1);
+}
+
+.btn-ghost {
+  border-color: rgba(160,150,210,0.55);
+  color: var(--accent-soft);
+}
+
+.btn-ghost:hover {
+  background-color: rgba(28,24,70,0.95);
+  border-color: rgba(200,190,255,0.75);
+}
+
+/* FEATURE CARDS */
+.features {
+  padding: 50px 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+
+.feature-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(200,190,255,0.18);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  backdrop-filter: blur(var(--blur));
+  transition: 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(230,220,255,0.32);
+}
+
+.feature-card h3 {
+  font-size: 1.15rem;
+  color: var(--accent-strong);
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  color: var(--text-dim);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+/* DIVISIONS QUICK CARDS */
+.divisions {
+  padding: 50px 0;
+}
+
+.division-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 18px;
+}
+
+.division-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(200,190,255,0.18);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  text-align: center;
+  transition: 0.25s ease;
+}
+
+.division-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(230,220,255,0.32);
+}
+
+.division-card h4 {
+  font-size: 1.05rem;
+  color: var(--accent-soft);
+}
+
+/* TEAM GRID (from your old design) */
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-dim);
+  margin-bottom: 26px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 22px;
+}
+
+.team-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(200,190,255,0.18);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  backdrop-filter: blur(var(--blur));
+  transition: 0.25s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(230,220,255,0.32);
+}
+
+.card-name {
+  font-size: 1.18rem;
+  font-weight: 600;
+}
+
+.card-role {
+  font-size: 0.9rem;
+  color: var(--accent-soft);
+  margin: 6px 0 10px;
+}
+
+.card-desc {
+  font-size: 0.92rem;
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+/* CAPABILITIES */
+.capabilities {
+  padding: 50px 0;
+}
+
+.cap-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 18px;
+}
+
+.cap-block {
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(200,190,255,0.18);
+  backdrop-filter: blur(var(--blur));
+}
+
+.cap-block h4 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  color: var(--accent-strong);
+}
+
+.cap-block p {
+  font-size: 0.92rem;
+  color: var(--text-dim);
+}
+
+/* CTA PANEL */
+.cta {
+  padding: 50px 0;
+}
+
+.cta-panel {
+  background: rgba(10,9,35,0.96);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(200,190,255,0.18);
+  padding: 30px;
+  text-align: center;
+  backdrop-filter: blur(var(--blur));
+}
+
+.cta-panel h2 {
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+}
+
+.cta-panel p {
+  font-size: 1rem;
+  color: var(--text-dim);
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+footer {
+  margin-top: 60px;
+  padding: 24px 0 30px;
+  text-align: center;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(120,100,190,0.28);
+}
+
+.community-button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.community-button a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: #5865F2; /* Discord blurple */
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.community-button a img {
+  width: 20px;
+  height: 20px;
+}
+
+.community-button a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(88, 101, 242, 0.35);
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="container nav-inner">
+    <div class="nav-left">
+      <img src="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png">
+      <span>Arriva Corporation</span>
+    </div>
+    <div class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/careers.html">Careers</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/legal.html">Legal</a>
+      <a href="/support.html">Support</a>
+      <a href="/termsofservice.html">ToS</a>
+      <a href="/privacypolicy.html">Privacy</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-logo">
+      <img src="https://i.ibb.co/yFNXZxX4/arriva-corp-logo-pure.png">
+    </div>
+
+    <h1>Building the <span>next generation</span> of Roblox systems.</h1>
+
+    <p>
+      Arriva Corporation specialises in frameworks, infrastructure tooling, internal systems
+      and immersive Roblox experiences — built with long-term stability and polish in mind.
+    </p>
+
+    <div class="hero-actions">
+      <a href="/about" class="btn btn-primary">Learn more</a>
+      <a href="/careers" class="btn btn-ghost">Careers</a>
+    </div>
+          <div class="community-button">
+  <a href="https://discord.gg/fYKf7aczEp" target="_blank" rel="noopener">
+    <img src="https://i.ibb.co/Z1WGzywW/image.png" alt="Discord">
+    <span>Join our community</span>
+  </a>
+</div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container">
+    <h2 class="section-title">What we focus on</h2>
+    <p class="section-subtitle">
+      Our work spans tools, infrastructure and immersive experiences across multiple platforms.
+    </p>
+
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <h3>Frameworks & Infrastructure</h3>
+        <p>
+          Licensing, authentication, permissions, admin systems and backend tooling — engineered for stability and scale.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Experiences & Worlds</h3>
+        <p>
+          Transport simulations, facility projects and narrative-driven environments powered by in-house systems.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Developer Tooling</h3>
+        <p>
+          Internal dashboards, moderation interfaces, automation systems and support utilities for studios and teams.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Community & Operations</h3>
+        <p>
+          Organised staffing structures, event systems, moderation pipelines and long-term operational workflows.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Roblox Platform</h3>
+        <p>
+          Large-scale Roblox systems, experiences and infrastructure projects built with reliability,
+          performance and maintainability in mind.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Discord & VRChat</h3>
+        <p>
+          Community hubs, moderation workflows and relaxed VRChat social spaces — focused on clear communication,
+          calm interaction and sustainable community growth.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- DIVISIONS QUICK OVERVIEW -->
+<section class="divisions">
+  <div class="container">
+    <h2 class="section-title">Our Projects & Divisions</h2>
+    <p class="section-subtitle">
+      Each area focuses on a unique part of the Roblox ecosystem.
+    </p>
+
+    <div class="division-grid">
+      <div class="division-card"><h4>RoAdmin</h4></div>
+      <div class="division-card"><h4>Licence Manager</h4></div>
+      <div class="division-card"><h4>Arriva Connecting Roblox</h4></div>
+      <div class="division-card"><h4>Cermona Foundation</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM SECTION (MID-PAGE) -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Our Team</h2>
+    <p class="section-subtitle">The people behind our systems, worlds and operations.</p>
+
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="card-name">Arriva</div>
+        <div class="card-role">Chief Executive Officer</div>
+        <div class="card-desc">
+          Oversees the entire organisation, systems direction and quality standards across all projects.
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="card-name">TheDev321</div>
+        <div class="card-role">Lead Developer</div>
+        <div class="card-desc">
+          Engineering lead for frameworks, internal tooling and architectural design across projects.
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="card-name">Ben</div>
+        <div class="card-role">Chief Operations Officer</div>
+        <div class="card-desc">
+          Manages organisational workflows, staffing coordination and cross-project operations.
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="card-name">LeoTheGamer</div>
+        <div class="card-role">Management Team</div>
+        <div class="card-desc">
+          Oversees staff organisation, communication pipelines and operational consistency.
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="card-name">MaxTheScriper</div>
+        <div class="card-role">Staff Supervisor</div>
+        <div class="card-desc">
+          Supervises internal teams, manages project workflows and ensures operational standards.
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="card-name">ddust1n</div>
+        <div class="card-role">Programmer</div>
+        <div class="card-desc">
+          Develops backend systems, gameplay architecture and advanced in-world logic.
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="card-name">George_Master13</div>
+        <div class="card-role">Programmer</div>
+        <div class="card-desc">
+          Implements gameplay logic, UI systems and experience-oriented features.
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="card-name">Strltz</div>
+        <div class="card-role">Builder</div>
+        <div class="card-desc">
+          Constructs environments, builds world assets and supports visual development.
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="card-name">ProjectNightmare</div>
+        <div class="card-role">Voice Actor</div>
+        <div class="card-desc">
+          Delivers voice lines and character audio for atmospheric and narrative features.
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="card-name">No_CauseMedia</div>
+        <div class="card-role">Voice Actor</div>
+        <div class="card-desc">
+          Provides vocal performance and narration for experience-driven content.
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="card-name">QueefingChief</div>
+        <div class="card-role">Voice Actor</div>
+        <div class="card-desc">
+          Performs dialogue, scene narration and thematic vocal content.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="capabilities">
+  <div class="container">
+    <h2 class="section-title">What We Build</h2>
+    <p class="section-subtitle">Our expertise spans multiple areas of development and operations.</p>
+
+    <div class="cap-list">
+      <div class="cap-block">
+        <h4>Systems Engineering</h4>
+        <p>Frameworks, automation, scalable backend logic and high-reliability tools.</p>
+      </div>
+      <div class="cap-block">
+        <h4>Infrastructure Tools</h4>
+        <p>Licensing, authentication, permission routing and studio utilities.</p>
+      </div>
+      <div class="cap-block">
+        <h4>Experience Design</h4>
+        <p>World structures, gameplay logic, simulated systems and dynamic environments.</p>
+      </div>
+      <div class="cap-block">
+        <h4>Operations & Staff Systems</h4>
+        <p>Moderation tools, workflows, staff structure design and organisational support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-panel">
+      <h2>Ready to explore more?</h2>
+      <p>Learn about how we work, what we build, and how you can join the team.</p>
+
+      <a href="/about" class="btn btn-primary">About Us</a>
+      <a href="/careers" class="btn btn-ghost" style="margin-left: 10px;">Careers</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© Arriva Corporation 2025 — All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
